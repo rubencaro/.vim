@@ -48,4 +48,6 @@ nmap <F3> :set paste! paste?<CR>
 noremap <F9> :NERDTreeToggle<CR>
 inoremap <F9> <Esc>:NERDTreeToggle<CR>
 
+" Airline
+set laststatus=2
 
