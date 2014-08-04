@@ -26,20 +26,35 @@ function s:mouse_toggle()
 endfunction
 nnoremap <unique> <silent> <plug>mouse_toggle :call <sid>mouse_toggle()<cr>
 map <unique> <F2> <plug>mouse_toggle
+imap <unique> <F2> <Esc><plug>mouse_togglei
 
 " usual bindings
 imap <C-d> <Esc>ddi
+map <C-d> dd
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
 
+" save buffer
+map <C-A>s :w<CR>
+imap <C-A>s <C-O>:w<CR>
+
 " windows & tabs
 map <C-UP> :bp<CR>
 map <C-DOWN> :bn<CR>
-map <C-q> :bc<CR>
-map <C-LEFT> :tabp<CR>
-map <C-RIGHT> :tabn<CR>
+map <C-LEFT> <C-W>w<CR>
+map <C-RIGHT> <C-W>w<CR>
+map <S-LEFT> :tabp<CR>
+map <S-RIGHT> :tabn<CR>
+map <C-A>q :qa<CR>
+imap <C-A>q <Esc>:qa<CR>
+map <C-A>3 :vsplit<CR>
+imap <C-A>3 <Esc>:vsplit<CR>
+map <C-A>2 :split<CR>
+imap <C-A>2 <Esc>:split<CR>
+map <C-A>1 :on<CR>
+imap <C-A>1 <Esc>:on<CR>
 
 " toggle paste mode
 nmap <F3> :set paste! paste?<CR>
