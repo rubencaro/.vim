@@ -50,4 +50,5 @@ inoremap <F9> <Esc>:NERDTreeToggle<CR>
 
 " Airline
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
 
