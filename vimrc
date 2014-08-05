@@ -67,3 +67,8 @@ inoremap <F9> <Esc>:NERDTreeToggle<CR>
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
+" vim-gitgutter
+map <F8> :GitGutterToggle<CR>
+imap <F8> <C-O>:GitGutterToggle<CR>
+highlight clear SignColumn
+
