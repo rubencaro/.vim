@@ -2,6 +2,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set encoding=utf-8
+set ttimeoutlen=51 " avoid pause leaving insert mode
 set smartindent
 set tabstop=2
 set shiftwidth=2
@@ -71,5 +73,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " vim-gitgutter
 map <F8> :GitGutterToggle<CR>
 imap <F8> <C-O>:GitGutterToggle<CR>
+map <C-A><F8> :GitGutterPreviewHunk<CR>
+imap <C-A><F8> <C-O>:GitGutterPreviewHunk<CR>
 highlight clear SignColumn
 
