@@ -66,6 +66,7 @@ inoremap <F9> <Esc>:NERDTreeToggle<CR>
 " Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 1
 
 " vim-gitgutter
 map <F8> :GitGutterToggle<CR>
