@@ -35,6 +35,7 @@ imap <C-d> <Esc>ddi
 map <C-d> dd
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
+map <C-v> pi
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
 
@@ -47,19 +48,41 @@ map <C-UP> :bp<CR>
 map <C-DOWN> :bn<CR>
 map <C-LEFT> <C-W>w<CR>
 map <C-RIGHT> <C-W>w<CR>
-map <S-LEFT> :tabp<CR>
-map <S-RIGHT> :tabn<CR>
 map <C-A>q :qa<CR>
 imap <C-A>q <Esc>:qa<CR>
 map <C-A>3 :vsplit<CR>
-imap <C-A>3 <Esc>:vsplit<CR>
+imap <C-A>3 <C-O>:vsplit<CR>
 map <C-A>2 :split<CR>
-imap <C-A>2 <Esc>:split<CR>
+imap <C-A>2 <C-O>:split<CR>
 map <C-A>1 :on<CR>
-imap <C-A>1 <Esc>:on<CR>
+imap <C-A>1 <C-O>:on<CR>
+map <C-A>w :bd<CR>
+imap <C-A>w <C-O>:bd<CR>
+
+" shift+arrow selection
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
+nmap <S-Right> v<Right>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
+vmap <S-Right> <Right>
+imap <S-Up> <Esc>v<Up>
+imap <S-Down> <Esc>v<Down>
+imap <S-Left> <Esc>v<Left>
+imap <S-Right> <Esc>v<Right>
 
 " toggle paste mode
 nmap <F3> :set paste! paste?<CR>
+
+" easygrep
+map <C-g> :Grep <C-r><C-w>
+imap <C-g> <Esc> :Grep <C-r><C-w>
+map <C-h> :Replace <C-r><C-w>
+imap <C-h> <Esc> :Replace <C-r><C-w>
+map <C-A>g :GrepOptions<CR>
+imap <C-A>g <Esc>:GrepOptions<CR>
 
 " NERDTree, a must
 noremap <F9> :NERDTreeToggle<CR>
