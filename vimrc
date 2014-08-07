@@ -1,3 +1,9 @@
+" TODO:
+"   autocompletion
+"   sessions
+"   spaces, not tabs
+"   trailing spaces
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
