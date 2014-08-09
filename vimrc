@@ -5,6 +5,7 @@
 "   trailing spaces
 "   undo tree
 "   packages
+"   commenting
 
 execute pathogen#infect()
 syntax on
