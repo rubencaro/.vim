@@ -3,6 +3,8 @@
 "   sessions
 "   spaces, not tabs
 "   trailing spaces
+"   undo tree
+"   packages
 
 execute pathogen#infect()
 syntax on
