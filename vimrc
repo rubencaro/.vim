@@ -53,8 +53,12 @@ map <C-A>s :w<CR>
 imap <C-A>s <C-O>:w<CR>
 
 " windows & tabs
-map <C-UP> :bp<CR>
-map <C-DOWN> :bn<CR>
+imap <C-UP> <C-O>:bp!<CR>
+imap <C-DOWN> <C-O>:bn!<CR>
+map <C-UP> :bp!<CR>
+map <C-DOWN> :bn!<CR>
+imap <C-LEFT> <C-O><C-W>w<CR>
+imap <C-RIGHT> <C-O><C-W>w<CR>
 map <C-LEFT> <C-W>w<CR>
 map <C-RIGHT> <C-W>w<CR>
 map <C-A>q :qa<CR>
