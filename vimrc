@@ -75,8 +75,8 @@ imap <C-LEFT> <C-O><C-W>w<CR>
 imap <C-RIGHT> <C-O><C-W>w<CR>
 map <C-LEFT> <C-W>w<CR>
 map <C-RIGHT> <C-W>w<CR>
-map <C-A>q :qa<CR>
-imap <C-A>q <Esc>:qa<CR>
+map <C-A>q :confirm :qa<CR>
+imap <C-A>q <Esc>:confirm :qa<CR>
 map <C-A>3 :vsplit<CR>
 imap <C-A>3 <C-O>:vsplit<CR>
 map <C-A>2 :split<CR>
