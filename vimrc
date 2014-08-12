@@ -1,8 +1,5 @@
 " TODO:
-"   autocompletion
 "   sessions
-"   spaces, not tabs
-"   trailing spaces
 "   undo tree
 "   packages
 "   commenting
@@ -13,10 +10,27 @@ filetype plugin indent on
 
 set encoding=utf-8
 set ttimeoutlen=51 " avoid pause leaving insert mode
+
+" tabs & spaces
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+let c_no_tab_space_error = 1 " avoid marking indentation spaces as error
+
+function TrimWhiteSpace()
+    %s/\s*$//
+    ''
+:endfunction
+
+set list listchars=tab:»-,trail:·
+"autocmd FileWritePre * :call TrimWhiteSpace()
+"autocmd FileAppendPre * :call TrimWhiteSpace()
+"autocmd FilterWritePre * :call TrimWhiteSpace()
+"autocmd BufWritePre * :call TrimWhiteSpace()
+
+map <F4> :call TrimWhiteSpace()<CR>
+imap <F4> <C-O>:call TrimWhiteSpace()<CR>
 
 " line numbers
 set number
@@ -27,13 +41,13 @@ vmap <F5> <Esc>:set number!<CR>gv
 " mouse
 set mouse=a
 function s:mouse_toggle()
-	if &mouse == ""
-		let &mouse = "a"
-		echo "mouse enabled (=" . &mouse . ")"
-	else
-		let &mouse = ""
-		echo "mouse disabled"
-	endif
+  if &mouse == ""
+    let &mouse = "a"
+    echo "mouse enabled (=" . &mouse . ")"
+  else
+    let &mouse = ""
+    echo "mouse disabled"
+  endif
 endfunction
 nnoremap <unique> <silent> <plug>mouse_toggle :call <sid>mouse_toggle()<cr>
 map <unique> <F2> <plug>mouse_toggle
