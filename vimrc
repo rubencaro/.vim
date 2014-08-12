@@ -127,3 +127,5 @@ map <C-A><F8> :GitGutterPreviewHunk<CR>
 imap <C-A><F8> <C-O>:GitGutterPreviewHunk<CR>
 highlight clear SignColumn
 
+" CtrlP
+imap <C-P> <C-O><C-P>
