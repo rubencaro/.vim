@@ -10,6 +10,8 @@ filetype plugin indent on
 
 set encoding=utf-8
 set ttimeoutlen=51 " avoid pause leaving insert mode
+set nowrap
+set sidescroll=5
 
 " tabs & spaces
 set smartindent
@@ -19,11 +21,11 @@ set expandtab
 let c_no_tab_space_error = 1 " avoid marking indentation spaces as error
 
 function TrimWhiteSpace()
-    %s/\s*$//
-    ''
+  %s/\s*$//
+  ''
 :endfunction
 
-set list listchars=tab:»-,trail:·
+set list listchars=tab:»-,trail:·,precedes:◂,extends:▸
 "autocmd FileWritePre * :call TrimWhiteSpace()
 "autocmd FileAppendPre * :call TrimWhiteSpace()
 "autocmd FilterWritePre * :call TrimWhiteSpace()
@@ -108,9 +110,9 @@ nmap <F3> :set paste! paste?<CR>
 
 " easygrep
 map <C-g> :Grep <C-r><C-w>
-imap <C-g> <Esc> :Grep <C-r><C-w>
+imap <C-g> <Esc>:Grep <C-r><C-w>
 map <C-h> :Replace <C-r><C-w>
-imap <C-h> <Esc> :Replace <C-r><C-w>
+imap <C-h> <Esc>:Replace <C-r><C-w>
 map <C-A>g :GrepOptions<CR>
 imap <C-A>g <Esc>:GrepOptions<CR>
 
