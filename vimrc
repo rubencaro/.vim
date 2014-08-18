@@ -2,7 +2,6 @@
 "   sessions
 "   undo tree
 "   packages
-"   commenting
 
 execute pathogen#infect()
 syntax on
@@ -132,3 +131,7 @@ highlight clear SignColumn
 
 " CtrlP
 imap <C-P> <C-O><C-P>
+
+" NERDcommenter
+map <F6> <plug>NERDCommenterToggle<CR>
+imap <F6> <C-O><plug>NERDCommenterToggle<CR>
