@@ -76,20 +76,20 @@ imap <C-UP> <C-O>:bp!<CR>
 imap <C-DOWN> <C-O>:bn!<CR>
 map <C-UP> :bp!<CR>
 map <C-DOWN> :bn!<CR>
-imap <C-LEFT> <C-O><C-W>w<CR>
-imap <C-RIGHT> <C-O><C-W>w<CR>
-map <C-LEFT> <C-W>w<CR>
-map <C-RIGHT> <C-W>w<CR>
+imap <C-LEFT> <C-O><C-W>w
+imap <C-RIGHT> <C-O><C-W>w
+map <C-LEFT> <C-W>w
+map <C-RIGHT> <C-W>w
 map <C-A>q :confirm :qa<CR>
 imap <C-A>q <Esc>:confirm :qa<CR>
 map <C-A>3 :vsplit<CR>
 imap <C-A>3 <C-O>:vsplit<CR>
 map <C-A>2 :split<CR>
 imap <C-A>2 <C-O>:split<CR>
-map <C-A>1 :on<CR>
-imap <C-A>1 <C-O>:on<CR>
-map <C-A>0 <C-W>c<CR>
-imap <C-A>0 <C-O><C-W>c<CR>
+map <C-A>1 :on!<CR>
+imap <C-A>1 <C-O>:on!<CR>
+map <C-A>0 <C-W>c
+imap <C-A>0 <C-O><C-W>c
 map <C-A>w :silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
 imap <C-A>w <C-O>:silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
 
@@ -115,8 +115,10 @@ map <C-g> :Grep <C-r><C-w>
 imap <C-g> <Esc>:Grep <C-r><C-w>
 map <C-h> :Replace <C-r><C-w>
 imap <C-h> <Esc>:Replace <C-r><C-w>
+
 map <C-A>g :GrepOptions<CR>
 imap <C-A>g <Esc>:GrepOptions<CR>
+
 
 " NERDTree, a must
 noremap <F9> :NERDTreeToggle<CR>
@@ -140,3 +142,8 @@ imap <C-P> <C-O><C-P>
 " NERDcommenter
 map <F6> <plug>NERDCommenterToggle<CR>
 imap <F6> <C-O><plug>NERDCommenterToggle<CR>
+
+" sessions
+imap <S-F12> <C-O>:SaveSession!
+imap <F12> <C-O>:OpenSession
+
