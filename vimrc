@@ -83,6 +83,8 @@ map <C-A>2 :split<CR>
 imap <C-A>2 <C-O>:split<CR>
 map <C-A>1 :on<CR>
 imap <C-A>1 <C-O>:on<CR>
+map <C-A>0 <C-W>c<CR>
+imap <C-A>0 <C-O><C-W>c<CR>
 map <C-A>w :bd<CR>
 imap <C-A>w <C-O>:bd<CR>
 
