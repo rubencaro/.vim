@@ -144,6 +144,7 @@ map <F6> <plug>NERDCommenterToggle<CR>
 imap <F6> <C-O><plug>NERDCommenterToggle<CR>
 
 " sessions
-imap <S-F12> <C-O>:SaveSession!
-imap <F12> <C-O>:OpenSession
+imap <S-F12> <C-O>:SaveSession! 
+imap <F12> <C-O>:OpenSession! 
+let g:session_autosave = 'yes'
 
