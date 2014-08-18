@@ -61,6 +61,7 @@ vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
+imap <C-y> <C-O>:redo<CR>
 
 " save buffer
 map <C-A>s :w<CR>
