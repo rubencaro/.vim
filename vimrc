@@ -88,8 +88,8 @@ map <C-A>1 :on<CR>
 imap <C-A>1 <C-O>:on<CR>
 map <C-A>0 <C-W>c<CR>
 imap <C-A>0 <C-O><C-W>c<CR>
-map <C-A>w :bd<CR>
-imap <C-A>w <C-O>:bd<CR>
+map <C-A>w :silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
+imap <C-A>w <C-O>:silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
 
 " shift+arrow selection
 nmap <S-Up> v<Up>
