@@ -1,7 +1,7 @@
 " TODO:
-"   sessions
 "   undo tree
 "   packages
+"   exit insert mode on spaecial windows
 
 execute pathogen#infect()
 syntax on
@@ -14,6 +14,8 @@ set encoding=utf-8
 set ttimeoutlen=51 " avoid pause leaving insert mode
 set nowrap
 set sidescroll=5
+set cursorline
+set whichwrap+=<,>,[,]
 
 " tabs & spaces
 set smartindent
@@ -81,7 +83,7 @@ imap <C-RIGHT> <C-O><C-W>w
 map <C-LEFT> <C-W>w
 map <C-RIGHT> <C-W>w
 map <C-A>q :confirm :qa<CR>
-imap <C-A>q <Esc>:confirm :qa<CR>
+imap <C-A>q <C-O>:confirm :qa<CR>
 map <C-A>3 :vsplit<CR>
 imap <C-A>3 <C-O>:vsplit<CR>
 map <C-A>2 :split<CR>
@@ -112,17 +114,16 @@ nmap <F3> :set paste! paste?<CR>
 
 " easygrep
 map <C-g> :Grep <C-r><C-w>
-imap <C-g> <Esc>:Grep <C-r><C-w>
+imap <C-g> <C-L>:Grep <C-r><C-w>
 map <C-h> :Replace <C-r><C-w>
-imap <C-h> <Esc>:Replace <C-r><C-w>
-
+imap <C-h> <C-L>:Replace <C-r><C-w>
 map <C-A>g :GrepOptions<CR>
-imap <C-A>g <Esc>:GrepOptions<CR>
-
+imap <C-A>g <C-L>:GrepOptions<CR>
+let g:EasyGrepRecursive = 1
 
 " NERDTree, a must
 noremap <F9> :NERDTreeToggle<CR>
-inoremap <F9> <Esc>:NERDTreeToggle<CR>
+inoremap <F9> <C-L>:NERDTreeToggle<CR>
 
 " Airline
 set laststatus=2
@@ -146,5 +147,7 @@ imap <F6> <C-O><plug>NERDCommenterToggle<CR>
 " sessions
 imap <S-F12> <C-O>:SaveSession! 
 imap <F12> <C-O>:OpenSession! 
+map <S-F12> :SaveSession! 
+map <F12> :OpenSession! 
 let g:session_autosave = 'yes'
 
