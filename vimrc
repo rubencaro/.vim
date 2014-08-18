@@ -8,6 +8,8 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+set insertmode   " ha!
+
 set encoding=utf-8
 set ttimeoutlen=51 " avoid pause leaving insert mode
 set nowrap
