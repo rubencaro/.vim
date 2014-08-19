@@ -73,6 +73,9 @@ imap <C-f> <C-O>g*
 imap <C-A>f <C-L>/
 imap <C-h> <C-O>:%s///g
 
+"toggle search highlighting
+imap <C-A>l <C-O>:set hls!<CR>
+
 " save buffer
 map <C-A>s :w<CR>
 imap <C-A>s <C-O>:w<CR>
