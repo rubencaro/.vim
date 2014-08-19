@@ -1,7 +1,8 @@
 " TODO:
 "   undo tree
 "   packages
-"   exit insert mode on spaecial windows
+"   diff
+"   replace
 
 execute pathogen#infect()
 syntax on
@@ -68,6 +69,8 @@ map <C-v> pi
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
 imap <C-y> <C-O>:redo<CR>
+imap <C-f> <C-O>g*
+imap <C-A>f <C-L>/
 
 " save buffer
 map <C-A>s :w<CR>
