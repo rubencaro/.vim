@@ -71,6 +71,7 @@ imap <C-z> <Esc>ui
 imap <C-y> <C-O>:redo<CR>
 imap <C-f> <C-O>g*
 imap <C-A>f <C-L>/
+imap <C-h> <C-O>:%s///g
 
 " save buffer
 map <C-A>s :w<CR>
