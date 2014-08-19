@@ -112,18 +112,21 @@ imap <S-Right> <Esc>v<Right>
 " toggle paste mode
 nmap <F3> :set paste! paste?<CR>
 
-" easygrep
-map <C-g> :Grep <C-r><C-w>
-imap <C-g> <C-L>:Grep <C-r><C-w>
-map <C-h> :Replace <C-r><C-w>
-imap <C-h> <C-L>:Replace <C-r><C-w>
-map <C-A>g :GrepOptions<CR>
-imap <C-A>g <C-L>:GrepOptions<CR>
-let g:EasyGrepRecursive = 1
+" regular grep
+imap <C-G> <C-O>:Grep<CR>
+map <C-G> :Grep<CR>
+let Grep_Default_Options = '-nHiRI -D skip'
+let Grep_Skip_Dirs = '.git .svn log'
+let Grep_Skip_Files = '*.bak *~ *.log *.swp *.orig'
+imap <F10> <C-O>:cclose<CR>
+map <F10> :cclose<CR>
+imap <M-F10> <C-O>:copen<CR>
+map <M-F10> :copen<CR>
 
 " NERDTree, a must
 noremap <F9> :NERDTreeToggle<CR>
-inoremap <F9> <C-L>:NERDTreeToggle<CR>
+inoremap <F9> <C-O>:NERDTreeToggle<CR>
+au BufCreate NERD stopinsert
 
 " Airline
 set laststatus=2
