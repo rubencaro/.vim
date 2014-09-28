@@ -152,6 +152,7 @@ highlight clear SignColumn
 " CtrlP
 imap <C-P> <C-O><C-P>
 imap <C-A>p <C-L>:CtrlP 
+map <C-A>p :CtrlP 
 
 " NERDcommenter
 map <F6> <plug>NERDCommenterToggle<CR>
