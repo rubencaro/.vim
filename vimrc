@@ -10,6 +10,8 @@ filetype plugin on
 filetype plugin indent on
 
 set insertmode   " ha!
+imap <F1> <C-O>:set invinsertmode<CR>
+map <F1> :set invinsertmode<CR>
 
 set encoding=utf-8
 set ttimeoutlen=51 " avoid pause leaving insert mode
