@@ -3,7 +3,7 @@
 "   packages
 "   diff
 "   replace
-"   abandon vim for a really nice editor
+"   abandon vim for a really nice editor, and getting done
 
 execute pathogen#infect()
 syntax on
