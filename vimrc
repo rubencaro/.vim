@@ -3,6 +3,7 @@
 "   packages
 "   diff
 "   replace
+"   abandon vim for a really nice editor
 
 execute pathogen#infect()
 syntax on
@@ -151,17 +152,16 @@ highlight clear SignColumn
 
 " CtrlP
 imap <C-P> <C-O><C-P>
-imap <C-A>p <C-L>:CtrlP 
-map <C-A>p :CtrlP 
+imap <C-A>p <C-L>:CtrlP
+map <C-A>p :CtrlP
 
 " NERDcommenter
 map <F6> <plug>NERDCommenterToggle<CR>
 imap <F6> <C-O><plug>NERDCommenterToggle<CR>
 
 " sessions
-imap <S-F12> <C-O>:SaveSession! 
-imap <F12> <C-O>:OpenSession! 
-map <S-F12> :SaveSession! 
-map <F12> :OpenSession! 
+imap <S-F12> <C-O>:SaveSession!
+imap <F12> <C-O>:OpenSession!
+map <S-F12> :SaveSession!
+map <F12> :OpenSession!
 let g:session_autosave = 'yes'
-
