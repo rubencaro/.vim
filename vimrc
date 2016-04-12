@@ -73,6 +73,7 @@ imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
 imap <C-y> <C-O>:redo<CR>
 imap <C-f> <C-O>g*
+map <C-f> g*
 imap <C-A>f <C-L>/
 imap <C-h> <C-O>:%s///g
 
