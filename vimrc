@@ -5,17 +5,35 @@
 "   replace
 "   abandon vim for a really nice editor
 
-execute pathogen#infect()
+" Auto-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Start plugins definition
+call plug#begin()
+Plug 'tpope/vim-sensible'
+call plug#end()
+" End plugins definition
+
+filetype plugin indent on " load filetype plugins/indent settings
 syntax on
 filetype plugin on
-filetype plugin indent on
 
-set insertmode   " ha!
-imap <F1> <C-O>:set invinsertmode<CR>
-map <F1> :set invinsertmode<CR>
+" set insertmode   " ha!
+" imap <F1> <C-O>:set invinsertmode<CR>
+" map <F1> :set invinsertmode<CR>
+
+" GUI tweaks
+set guifont=Ubuntu\ Mono\ 15
+set guioptions=aegiLt
+nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+set guioptions-=m  "remove menu bar
 
 set encoding=utf-8
-set ttimeoutlen=51 " avoid pause leaving insert mode
+set ttimeoutlen=52 " avoid pause leaving insert mode
 set nowrap
 set sidescroll=5
 set cursorline
@@ -71,14 +89,17 @@ vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
+map <C-z> u
 imap <C-y> <C-O>:redo<CR>
 imap <C-f> <C-O>g*
 map <C-f> g*
-imap <C-A>f <C-L>/
+imap <C-A>f <C-O>/
+map <C-A>f /
 imap <C-h> <C-O>:%s///g
 
 "toggle search highlighting
 imap <C-A>l <C-O>:set hls!<CR>
+map <C-A>l :set hls!<CR>
 
 " save buffer
 map <C-A>s :w<CR>
