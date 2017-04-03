@@ -23,12 +23,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'dkprice/vim-easygrep'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 call plug#end()
 " End plugins definition
 
 filetype plugin indent on " load filetype plugins/indent settings
 syntax on
 filetype plugin on
+
+colorscheme torte
 
 " set insertmode   " ha!
 " imap <F1> <C-O>:set invinsertmode<CR>
@@ -90,8 +94,10 @@ map <unique> <F2> <plug>mouse_toggle
 imap <unique> <F2> <Esc><plug>mouse_togglei
 
 " usual bindings
-imap <C-d> <Esc>ddi
+imap <C-A>d <Esc>yypi
+map <C-A>d yyp
 map <C-d> dd
+imap <C-d> <Esc>ddi
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 map <C-v> pi
@@ -99,6 +105,7 @@ imap <C-v> <Esc>pi
 imap <C-z> <Esc>ui
 map <C-z> u
 imap <C-y> <C-O>:redo<CR>
+map <C-y> :redo<CR>
 imap <C-f> <C-O>g*
 map <C-f> g*
 imap <C-A>f <C-O>/
@@ -153,11 +160,12 @@ imap <S-Right> <Esc>v<Right>
 nmap <F3> :set paste! paste?<CR>
 
 " regular grep
-imap <C-G> <C-O>:Grep<CR>
-map <C-G> :Grep<CR>
-let Grep_Default_Options = '-nHiRI -D skip'
-let Grep_Skip_Dirs = '.git .svn log'
-let Grep_Skip_Files = '*.bak *~ *.log *.swp *.orig'
+imap <C-G> <C-O>:Grep 
+map <C-G> :Grep 
+let EasyGrepCommand = 1
+let EasyGrepFilesToExclude = '*.bak,*~,*.log,*.swp,*.orig,*.beam,*.pyc,.git,.svn,log,tmp,_build,rel,deps'
+let EasyGrepRecursive = 1
+let EasyGrepAllOptionsInExplorer = 1
 imap <F10> <C-O>:cclose<CR>
 map <F10> :cclose<CR>
 imap <M-F10> <C-O>:copen<CR>
@@ -172,11 +180,13 @@ au BufCreate NERD stopinsert
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline_theme='simple'
+let g:airline_theme='understated'
 
 " vim-gitgutter
-map <F8> :GitGutterToggle<CR>
-imap <F8> <C-O>:GitGutterToggle<CR>
+map <F8> :GitGutterNextHunk<CR>
+map <S-F8> :GitGutterPrevHunk<CR>
+imap <F8> <C-O>:GitGutterNextHunk<CR>
+imap <S-F8> <C-O>:GitGutterPrevHunk<CR>
 map <C-A><F8> :GitGutterPreviewHunk<CR>
 imap <C-A><F8> <C-O>:GitGutterPreviewHunk<CR>
 highlight clear SignColumn
@@ -185,10 +195,16 @@ highlight clear SignColumn
 imap <C-P> <C-O><C-P>
 imap <C-A>p <C-L>:CtrlP
 map <C-A>p :CtrlP
+let g:ctrlp_by_filename = 1
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|tmp|log|_build|rel|deps)$',
+    \ 'file': '\v\.(exe|so|dll|beam)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
 
 " NERDcommenter
-map <F6> <plug>NERDCommenterToggle<CR>
-imap <F6> <C-O><plug>NERDCommenterToggle<CR>
+map <C-A>z <plug>NERDCommenterToggle<CR>
+imap <C-A>z <C-O><plug>NERDCommenterToggle<CR>
 
 " sessions
 imap <S-F12> <C-O>:SaveSession!
