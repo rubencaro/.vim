@@ -212,3 +212,4 @@ imap <F12> <C-O>:OpenSession!
 map <S-F12> :SaveSession!
 map <F12> :OpenSession!
 let g:session_autosave = 'yes'
+let g:session_default_to_last = 1
