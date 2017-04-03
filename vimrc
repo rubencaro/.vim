@@ -14,7 +14,15 @@ endif
 
 " Start plugins definition
 call plug#begin()
-Plug 'tpope/vim-sensible'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdcommenter'
+Plug 'dkprice/vim-easygrep'
+Plug 'elixir-lang/vim-elixir'
+Plug 'ervandew/supertab'
 call plug#end()
 " End plugins definition
 
@@ -49,7 +57,7 @@ let c_no_tab_space_error = 1 " avoid marking indentation spaces as error
 function TrimWhiteSpace()
   %s/\s*$//
   ''
-:endfunction
+endfunction
 
 set list listchars=tab:»-,trail:·,precedes:◂,extends:▸
 "autocmd FileWritePre * :call TrimWhiteSpace()
@@ -164,6 +172,7 @@ au BufCreate NERD stopinsert
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline_theme='simple'
 
 " vim-gitgutter
 map <F8> :GitGutterToggle<CR>
