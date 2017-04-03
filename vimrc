@@ -9,7 +9,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync "| source $MYVIMRC
 endif
 
 " Start plugins definition
@@ -33,6 +33,7 @@ syntax on
 filetype plugin on
 
 colorscheme torte
+highlight LineNr ctermfg=darkgrey
 
 " set insertmode   " ha!
 " imap <F1> <C-O>:set invinsertmode<CR>
@@ -48,7 +49,6 @@ set encoding=utf-8
 set ttimeoutlen=52 " avoid pause leaving insert mode
 set nowrap
 set sidescroll=5
-set cursorline
 set whichwrap+=<,>,[,]
 
 " tabs & spaces
