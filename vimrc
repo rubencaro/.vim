@@ -8,7 +8,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync "| source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync
 endif
 
 " Start plugins definition
@@ -45,6 +45,7 @@ set guifont=Ubuntu\ Mono\ 15
 set guioptions=aegiLt
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 set guioptions-=m  "remove menu bar
+highlight LineNr guifg=darkgrey
 
 " General opts
 set encoding=utf-8
@@ -52,6 +53,7 @@ set ttimeoutlen=52 " avoid pause leaving insert mode
 set nowrap
 set sidescroll=5
 set whichwrap+=<,>,[,]
+set clipboard=unnamedplus  " y además `alias vim='vimx'`
 
 " tabs & spaces
 set smartindent
@@ -59,21 +61,22 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 let c_no_tab_space_error = 1 " avoid marking indentation spaces as error
-
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-
 set list listchars=tab:»-,trail:·,precedes:◂,extends:▸
-map <F4> :call TrimWhiteSpace()<CR>
-imap <F4> <C-O>:call TrimWhiteSpace()<CR>
+"map <F4> :RemoveTrailingSpaces<CR>
+"imap <F4> <C-O>:RemoveTrailingSpaces<CR>
 
 " line numbers
 set number
 map <F5> :set invnumber<CR>
 imap <F5> <C-o>:set number!<CR>
 vmap <F5> <Esc>:set number!<CR>gv
+
+" menu
+"source $VIMRUNTIME/menu.vim
+"set wildmenu
+"set cpo-=<
+"set wcm=<C-Z>
+"map <F4> :emenu <C-Z>
 
 " mouse
 set mouse=a
@@ -94,11 +97,10 @@ imap <unique> <F2> <Esc><plug>mouse_togglei
 " duplicate line
 imap <C-A>d <Esc>yypi
 map <C-A>d yyp
-" remove line
-map <C-d> dd
-imap <C-d> <Esc>ddi
 " copy/cut/paste
 vmap <C-c> y<Esc>i
+map <C-x> dd
+imap <C-x> <Esc>ddi
 vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
@@ -225,9 +227,17 @@ map <C-A>z <plug>NERDCommenterToggle<CR>
 imap <C-A>z <C-O><plug>NERDCommenterToggle<CR>
 
 " sessions
-imap <S-F12> <C-O>:SaveSession!
-imap <F12> <C-O>:OpenSession!
-map <S-F12> :SaveSession!
-map <F12> :OpenSession!
+imap <S-F12> <C-O>:SaveSession! 
+imap <F12> <C-O>:OpenSession! 
+map <S-F12> :SaveSession! 
+map <F12> :OpenSession! 
 let g:session_autosave = 'yes'
 let g:session_default_to_last = 1
+
+" autoformat
+"
+" `npm install -g js-beautify`
+"
+"map <F4> :Autoformat<CR>
+"imap <F4> <C-O>:Autoformat<CR>
+
