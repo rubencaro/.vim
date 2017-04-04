@@ -24,6 +24,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 " End plugins definition
 
