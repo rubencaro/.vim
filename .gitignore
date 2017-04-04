@@ -1,3 +1,5 @@
 *.swp
-sessions/*.vim
-sessions/*.lock
+/sessions
+/autoload
+/plugged
+

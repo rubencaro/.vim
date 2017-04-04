@@ -1,6 +1,5 @@
 " TODO:
 "   undo tree
-"   packages
 "   diff
 "   replace
 "   abandon vim for a really nice editor
@@ -32,6 +31,7 @@ filetype plugin indent on " load filetype plugins/indent settings
 syntax on
 filetype plugin on
 
+" Nice colors
 colorscheme torte
 highlight LineNr ctermfg=darkgrey
 
@@ -45,6 +45,7 @@ set guioptions=aegiLt
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 set guioptions-=m  "remove menu bar
 
+" General opts
 set encoding=utf-8
 set ttimeoutlen=52 " avoid pause leaving insert mode
 set nowrap
@@ -64,11 +65,6 @@ function TrimWhiteSpace()
 endfunction
 
 set list listchars=tab:»-,trail:·,precedes:◂,extends:▸
-"autocmd FileWritePre * :call TrimWhiteSpace()
-"autocmd FileAppendPre * :call TrimWhiteSpace()
-"autocmd FilterWritePre * :call TrimWhiteSpace()
-"autocmd BufWritePre * :call TrimWhiteSpace()
-
 map <F4> :call TrimWhiteSpace()<CR>
 imap <F4> <C-O>:call TrimWhiteSpace()<CR>
 
@@ -94,18 +90,23 @@ map <unique> <F2> <plug>mouse_toggle
 imap <unique> <F2> <Esc><plug>mouse_togglei
 
 " usual bindings
+" duplicate line
 imap <C-A>d <Esc>yypi
 map <C-A>d yyp
+" remove line
 map <C-d> dd
 imap <C-d> <Esc>ddi
+" copy/cut/paste
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
+" undo/redo
 imap <C-z> <Esc>ui
 map <C-z> u
 imap <C-y> <C-O>:redo<CR>
 map <C-y> :redo<CR>
+" find/replace
 imap <C-f> <C-O>g*
 map <C-f> g*
 imap <C-A>f <C-O>/
@@ -121,24 +122,31 @@ map <C-A>s :w<CR>
 imap <C-A>s <C-O>:w<CR>
 
 " windows & tabs
+" show prev/next buffer
 imap <C-UP> <C-O>:bp!<CR>
 imap <C-DOWN> <C-O>:bn!<CR>
 map <C-UP> :bp!<CR>
 map <C-DOWN> :bn!<CR>
+" focus prev/next window
 imap <C-LEFT> <C-O><C-W>w
 imap <C-RIGHT> <C-O><C-W>w
 map <C-LEFT> <C-W>w
 map <C-RIGHT> <C-W>w
+" quit
 map <C-A>q :confirm :qa<CR>
 imap <C-A>q <C-O>:confirm :qa<CR>
+" split window
 map <C-A>3 :vsplit<CR>
 imap <C-A>3 <C-O>:vsplit<CR>
 map <C-A>2 :split<CR>
 imap <C-A>2 <C-O>:split<CR>
+" keep only focused window
 map <C-A>1 :on!<CR>
 imap <C-A>1 <C-O>:on!<CR>
+" close focused window
 map <C-A>0 <C-W>c
 imap <C-A>0 <C-O><C-W>c
+" close current buffer
 map <C-A>w :silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
 imap <C-A>w <C-O>:silent! bp<bar>sp<bar>silent! bn<bar>bd<CR>
 
@@ -156,6 +164,14 @@ imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
 
+" move lines
+nnoremap <M-Down> :m .+1<CR>==
+nnoremap <M-Up> :m .-2<CR>==
+inoremap <M-Down> <Esc>:m .+1<CR>==gi
+inoremap <M-Up> <Esc>:m .-2<CR>==gi
+vnoremap <M-Down> :m '>+1<CR>gv=gv
+vnoremap <M-Up> :m '<-2<CR>gv=gv
+
 " toggle paste mode
 nmap <F3> :set paste! paste?<CR>
 
@@ -166,6 +182,7 @@ let EasyGrepCommand = 1
 let EasyGrepFilesToExclude = '*.bak,*~,*.log,*.swp,*.orig,*.beam,*.pyc,.git,.svn,log,tmp,_build,rel,deps'
 let EasyGrepRecursive = 1
 let EasyGrepAllOptionsInExplorer = 1
+" close result window
 imap <F10> <C-O>:cclose<CR>
 map <F10> :cclose<CR>
 imap <M-F10> <C-O>:copen<CR>
