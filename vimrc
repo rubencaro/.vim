@@ -25,6 +25,8 @@ Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-fugitive'
+Plug 'tyru/open-browser-github'
 call plug#end()
 " End plugins definition
 
@@ -100,7 +102,7 @@ map <C-A>d yyp
 " copy/cut/paste
 vmap <C-c> y<Esc>i
 map <C-x> dd
-imap <C-x> <Esc>ddi
+inoremap <C-x> <Esc>ddi
 vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
@@ -202,13 +204,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline_theme='understated'
 
-" vim-gitgutter
+" vim-gitgutter & figutive
 map <F8> :GitGutterNextHunk<CR>
 map <S-F8> :GitGutterPrevHunk<CR>
 imap <F8> <C-O>:GitGutterNextHunk<CR>
 imap <S-F8> <C-O>:GitGutterPrevHunk<CR>
-map <C-A><F8> :GitGutterPreviewHunk<CR>
-imap <C-A><F8> <C-O>:GitGutterPreviewHunk<CR>
+map <C-A><F8> :Gvdiff<CR>
+imap <C-A><F8> <C-O>:Gvdiff<CR>
 highlight clear SignColumn
 
 " CtrlP
