@@ -102,8 +102,8 @@ imap <C-d> <Esc>yypi
 map <C-d> yyp
 " copy/cut/paste
 vmap <C-c> y<Esc>i
-map <C-x> dd
 inoremap <C-x> <Esc>ddi
+map <C-x> dd
 vmap <C-x> d<Esc>i
 map <C-v> pi
 imap <C-v> <Esc>pi
@@ -243,4 +243,6 @@ let g:session_default_to_last = 1
 "
 "map <F4> :Autoformat<CR>
 "imap <F4> <C-O>:Autoformat<CR>
+
+inoremap <C-x> <Esc>ddi
 
