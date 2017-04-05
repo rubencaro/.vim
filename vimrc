@@ -26,7 +26,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
-Plug 'tyru/open-browser-github'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 call plug#end()
 " End plugins definition
 
@@ -97,8 +98,8 @@ imap <unique> <F2> <Esc><plug>mouse_togglei
 
 " usual bindings
 " duplicate line
-imap <C-A>d <Esc>yypi
-map <C-A>d yyp
+imap <C-d> <Esc>yypi
+map <C-d> yyp
 " copy/cut/paste
 vmap <C-c> y<Esc>i
 map <C-x> dd
