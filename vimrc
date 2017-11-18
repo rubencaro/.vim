@@ -64,7 +64,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 let c_no_tab_space_error = 1 " avoid marking indentation spaces as error
-set list listchars=tab:»-,trail:·,precedes:◂,extends:▸
+set list listchars=trail:·,precedes:◂,extends:▸
 "map <F4> :RemoveTrailingSpaces<CR>
 "imap <F4> <C-O>:RemoveTrailingSpaces<CR>
 
@@ -243,6 +243,4 @@ let g:session_default_to_last = 1
 "
 "map <F4> :Autoformat<CR>
 "imap <F4> <C-O>:Autoformat<CR>
-
-inoremap <C-x> <Esc>ddi
 
