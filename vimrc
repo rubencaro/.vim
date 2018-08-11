@@ -16,11 +16,8 @@ call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dkprice/vim-easygrep'
-Plug 'ervandew/supertab'
-Plug 'xolox/vim-misc'
 call plug#end()
 " End plugins definition
 
@@ -199,7 +196,7 @@ au BufCreate NERD stopinsert
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline_theme='understated'
+" let g:airline_theme='understated'
 
 " CtrlP
 imap <C-P> <C-O><C-P>
