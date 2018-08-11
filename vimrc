@@ -15,20 +15,12 @@ endif
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dkprice/vim-easygrep'
-Plug 'elixir-lang/vim-elixir'
-Plug 'fatih/vim-go'
 Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-fugitive'
-Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
 call plug#end()
 " End plugins definition
 
@@ -45,9 +37,9 @@ highlight LineNr ctermfg=darkgrey
 " map <F1> :set invinsertmode<CR>
 
 " GUI tweaks
-set guifont=Ubuntu\ Mono\ 15
-set guioptions=aegiLt
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+set guifont=DejaVu\ Sans\ Mono\ 11
+set guioptions=aegit
+nnoremap <C-S-m> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 set guioptions-=m  "remove menu bar
 highlight LineNr guifg=darkgrey
 
@@ -76,11 +68,11 @@ imap <F5> <C-o>:set number!<CR>
 vmap <F5> <Esc>:set number!<CR>gv
 
 " menu
-"source $VIMRUNTIME/menu.vim
-"set wildmenu
-"set cpo-=<
-"set wcm=<C-Z>
-"map <F4> :emenu <C-Z>
+source $VIMRUNTIME/menu.vim
+set wildmenu
+set cpo-=<
+set wcm=<C-Z>
+map <F4> :emenu <C-Z>
 
 " mouse
 set mouse=a
@@ -101,6 +93,9 @@ imap <unique> <F2> <Esc><plug>mouse_togglei
 " duplicate line
 imap <C-d> <Esc>yypi
 map <C-d> yyp
+" select all
+map <C-A>a <Esc>ggVG<CR>
+imap <C-A>a <Esc>ggVG<CR>
 " copy/cut/paste
 vmap <C-c> y<Esc>i
 inoremap <C-x> <Esc>ddi
@@ -206,15 +201,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline_theme='understated'
 
-" vim-gitgutter & figutive
-map <F8> :GitGutterNextHunk<CR>
-map <S-F8> :GitGutterPrevHunk<CR>
-imap <F8> <C-O>:GitGutterNextHunk<CR>
-imap <S-F8> <C-O>:GitGutterPrevHunk<CR>
-map <C-A><F8> :Gvdiff<CR>
-imap <C-A><F8> <C-O>:Gvdiff<CR>
-highlight clear SignColumn
-
 " CtrlP
 imap <C-P> <C-O><C-P>
 imap <C-A>p <C-L>:CtrlP
@@ -237,11 +223,4 @@ map <S-F12> :SaveSession!
 map <F12> :OpenSession! 
 let g:session_autosave = 'yes'
 let g:session_default_to_last = 1
-
-" autoformat
-"
-" `npm install -g js-beautify`
-"
-"map <F4> :Autoformat<CR>
-"imap <F4> <C-O>:Autoformat<CR>
 
