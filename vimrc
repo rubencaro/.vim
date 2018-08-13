@@ -221,3 +221,6 @@ map <F12> :OpenSession!
 let g:session_autosave = 'yes'
 let g:session_default_to_last = 1
 
+"JSON formatter
+command! FormatJSON %!python -m json.tool
+
