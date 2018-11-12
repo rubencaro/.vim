@@ -98,7 +98,7 @@ vmap <C-c> y<Esc>i
 inoremap <C-x> <Esc>ddi
 map <C-x> dd
 vmap <C-x> d<Esc>i
-map <C-v> pi
+map <C-v> p
 imap <C-v> <Esc>pi
 " undo/redo
 imap <C-z> <Esc>ui
